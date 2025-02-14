@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffebee;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: latido 1s infinite alternate;
+        }
+
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -50px; left: 0; }
+        .heart::after { top: 0; left: 50px; }
+
+        @keyframes latido {
+            0% { transform: scale(1) rotate(-45deg); }
+            100% { transform: scale(1.1) rotate(-45deg); }
+        }
+
+        .texto {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            text-align: center;
+        }
+
+        .botones {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .boton {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .si {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .no {
+            background-color: #d32f2f;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart"></div>
+    <div class="texto">¿Quieres ser mi San Valentín? 💖</div>
+
+    <div class="botones">
+        <button class="boton si" onclick="irAFotos()">Sí</button>
+        <button class="boton no" onmouseover="moverBoton(this)">No</button>
+    </div>
+
+    <script>
+        function moverBoton(boton) {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            boton.style.left = `${x}px`;
+            boton.style.top = `${y}px`;
+        }
+
+        function irAFotos() {
+            window.location.href = "fotos.html";
+        }
+    </script>
+
+</body>
+</html>
